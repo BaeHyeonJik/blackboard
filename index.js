@@ -1,11 +1,4 @@
-const http = require('http');
-const hostname= '127.0.0.1';
-const port = 3000;
-const server=http.createServer((req, res) => {
-    res.statusCode= 200;
-    res.setHeader('Content-Type','text/plain');
-    res.end('HelloWorld\n');
-});
-server.listen(port,hostname,()=>{
-    console.log(`server running at http://${hostname}:${port}/`);
-});
+const arr = [1, 2, 3, 4];
+const [a1, a2, a3, a4] = arr;
+const [b1, , b3] = arr;
+const [, , , c4, c5, c6 = 10] = arr;
