@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS blackboard;
+USE blackboard;
+CREATE TABLE IF NOT EXISTS Users (
+  id VARCHAR(50) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  name VARCHAR(10) NOT NULL,
+  num VARCHAR(10) NOT NULL,
+  userclass VARCHAR(10) NOT NULL,
+  PRIMARY KEY (id, num));

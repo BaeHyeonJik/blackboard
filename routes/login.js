@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const {id, password} = req.body
   const params = [id, password]
-  console.log(id, password)
   const sql = 'SELECT * FROM Users WHERE id = ? AND password = ?';
   db.query(sql, params, function(err, rows, fields) {
     if (err) {
@@ -19,6 +18,7 @@ router.post('/', (req, res) => {
     } else {
       if (rows.length > 0) {
         console.log('로그인 성공:', id);
+        req.session.user = {id: rows[0].id, name : rows[0].name, num : rows[0].num};
         if(rows[0].userclass == 'student'){
           res.redirect('/student')
         }else{

@@ -7,7 +7,12 @@
 </head>
 <body>
     <h1>Professor page</h1>
-    <a href="">새로운 강의등록</a><br>
-    <a href="">자신의 강의목록 조희</a>
+    <form action="/professor" method="post">
+        <input type="hidden" name="list" value="새로운강의등록">
+        <input type="submit" value="새로운강의등록">
+    </form>
+    <form action="/logout" method="post">
+        <input type="submit" value="로그아웃">
+    </form>
 </body>
 </html>
