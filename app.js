@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const db = require('./db/db');
+const path = require('path');
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -18,6 +19,13 @@ app.use("/login", loginRouter)
 app.use("/register", registerRouter)
 app.use("/student", studentRouter)
 app.use("/professor", professorRouter)
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'homepage.html'));
+});
+
+
+
 
 
 
