@@ -15,10 +15,10 @@ router.post('/', (req, res) => {
   db.query(sql, params, function(err, rows, fields){
       if(err){
           console.log(err);
-          res.status(500).send('아이디 중복');
+          res.status(500).send('강의명이 중복');
       } else {
           console.log(rows.insertId);
-          res.redirect('/login');
+          res.redirect('/professor');
       }
   });
 }
