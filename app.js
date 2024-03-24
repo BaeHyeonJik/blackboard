@@ -7,8 +7,11 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const gobackRouter = require('./routes/goback');
 const registerRouter = require('./routes/register');
-const studentRouter = require('./routes/student/student');
-const professorRouter = require('./routes/professor/professor');
+const professorRouter = require('./routes/professor');
+const lecturesRouter = require('./routes/lectures');
+const studentRouter = require('./routes/student');
+
+
 const makenewlectureRouter = require('./routes/professor/makenewlecture');
 const proflectureRouter = require('./routes/professor/proflecture');
 
@@ -29,8 +32,10 @@ app.use("/login", loginRouter)
 app.use("/logout", logoutRouter)
 app.use("/goback", gobackRouter)
 app.use("/register", registerRouter)
-app.use("/student", studentRouter)
 app.use("/professor", professorRouter)
+app.use("/lectures", lecturesRouter)
+app.use("/student", studentRouter)
+
 app.use("/professor/makenewlecture", makenewlectureRouter)
 app.use("/professor/proflecture", proflectureRouter)
 
@@ -38,11 +43,6 @@ app.use("/professor/proflecture", proflectureRouter)
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'homepage.html'));
 });
-
-
-
-
-
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

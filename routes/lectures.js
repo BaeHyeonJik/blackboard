@@ -1,13 +1,9 @@
 const express = require('express');
-const path = require('path');
+const db = require('../db/db');
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../views/professor', 'proflecture.html'));
-});
-
-router.get('/lectures', async (req, res) => {
+router.get('/', async (req, res) => {
     const sql = 'SELECT * FROM Lectures Where professor = ?';
     const params = [req.session.user.id]
     db.query(sql, params, function(err, rows, fields) {

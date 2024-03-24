@@ -3,7 +3,7 @@ const path = require('path');
 const db = require('../db/db');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   res.sendFile(path.join(__dirname, '../views', 'login.html'));
 });
 
