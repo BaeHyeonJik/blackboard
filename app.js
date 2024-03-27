@@ -10,12 +10,12 @@ const logoutRouter = require('./routes/logout');
 const gobackRouter = require('./routes/goback');
 const registerRouter = require('./routes/register');
 const professorRouter = require('./routes/professor');
-const lecturesRouter = require('./routes/lectures');
 const studentRouter = require('./routes/student');
 
 
 const makenewlectureRouter = require('./routes/professor/makenewlecture');
 const proflectureRouter = require('./routes/professor/proflecture');
+const proflecturepostRouter = require('./routes/professor/proflecturepost');
 
 const app = express()
 const PORT = 3000;
@@ -37,12 +37,11 @@ app.use("/logout", logoutRouter)
 app.use("/goback", gobackRouter)
 app.use("/register", registerRouter)
 app.use("/professor", professorRouter)
-app.use("/lectures", lecturesRouter)
 app.use("/student", studentRouter)
 
 app.use("/professor/makenewlecture", makenewlectureRouter)
 app.use("/professor/proflecture", proflectureRouter)
-
+app.use("/professor/proflecturepost", proflecturepostRouter)
 
 app.get('/', (req, res) => {
   res.render('homepage');

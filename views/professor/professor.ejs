@@ -7,14 +7,8 @@
 </head>
 <body>
     <h1>Professor page</h1>
-    <form action="/professor" method="post">
-        <input type="hidden" name="list" value="새로운강의등록">
-        <input type="submit" value="새로운강의등록">
-    </form>
-    <form action="/professor" method="post">
-        <input type="hidden" name="list" value="강의조희">
-        <input type="submit" value="강의조회">
-    </form>
+    <button><a href ='/professor/makenewlecture'>강의 개설</a></button><br>
+    <button><a href ='/professor/proflecture'>개설 강의 조회</a></button><br>
     <form action="/logout" method="post">
         <input type="submit" value="로그아웃">
     </form>

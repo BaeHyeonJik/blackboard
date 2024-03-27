@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     delete req.session.id;
     delete req.session.name;
     delete req.session.num;
-    res.redirect('/login');
+    res.redirect('login');
 });
 
 module.exports = router;
