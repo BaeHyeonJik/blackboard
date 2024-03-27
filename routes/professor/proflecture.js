@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../views/professor', 'proflecture.html'));
+  res.render('professor/proflecture');;
 });
 
 router.get('/lectures', async (req, res) => {

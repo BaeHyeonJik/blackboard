@@ -3,6 +3,8 @@ const cors = require('cors')
 const path = require('path');
 const session = require('express-session')
 
+
+
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const gobackRouter = require('./routes/goback');
@@ -17,6 +19,8 @@ const proflectureRouter = require('./routes/professor/proflecture');
 
 const app = express()
 const PORT = 3000;
+
+app.set("view engine", "ejs");
 
 app.use(cors());
 app.use(express.json());
@@ -41,7 +45,7 @@ app.use("/professor/proflecture", proflectureRouter)
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'homepage.html'));
+  res.render('homepage');
 });
 
 app.listen(PORT, () => {

@@ -3,8 +3,8 @@ const path = require('path');
 const db = require('../db/db');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  res.sendFile(path.join(__dirname, '../views', 'login.html'));
+router.get('/', (req, res) => {
+  res.render('login');
 });
 
 router.post('/', (req, res) => {
@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   db.query(sql, params, function(err, rows, fields) {
     if (err) {
       console.error(err);
-      res.status(500).send('서버 오류가 발생했습니다.');
+      res.render('login');
     } else {
       if (rows.length > 0) {
         console.log('로그인 성공:', id);

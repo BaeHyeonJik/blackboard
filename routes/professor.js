@@ -3,7 +3,7 @@ const path = require('path');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/professor', 'professor.html'));
+    res.render('professor/professor');
 });
 router.post('/', (req, res) => {
    const {list} = req.body

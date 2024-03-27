@@ -4,28 +4,25 @@ const db = require('../db/db');
 const router = express.Router();
 
 
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views', 'register.html'));
-
-});
-
 router.post('/', (req, res) => {
     const {id, password, name, num, userclass} = req.body
+    console.log(id, password)
     if(id == '' || password == '' || name == '' || num == '' || userclass == null){
-        res.status(400).send({ error: '빈 칸을 채워주세요.' });
+        console.log('hi')
+        res.render('register', {error : 1});
     }else{
         var sql = 'INSERT INTO Users (id, password, name, num, userclass) VALUES(?, ?, ?, ?, ?)';
         var params = [id, password, name, num, userclass];
         db.query(sql, params, function(err, rows, fields){
             if(err){
                 console.log(err);
-                res.status(500).send('아이디 중복');
+                res.render('register', { error : 2});
             } else {
                 console.log(rows.insertId);
                 res.redirect('/login');
             }
         });
-    } 
+    }
 });
 
 module.exports = router;
